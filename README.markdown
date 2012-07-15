@@ -8,7 +8,7 @@ Makes creating Rails Partials a breeze. Quickly create a blank Partial, or selec
 1. Inside a Rails view file, select the text you with to put into a partial.
 2. Hit the corresponding shortcut key listed below under "Shortcut Keys"
 3. Name the Partial (the preceding underscore is not required)
-4. You're done! If using HAML, ensure that the partial is not indented on the first line or you will receive an error.
+4. You're done! **If using HAML**, ensure that the partial is not indented on the first line or you will receive an error.
 
 If you do not select any text before hitting the shortcut key, this plugin will simple create the partial file and insert the "render" code as appropriate.
 
@@ -17,14 +17,14 @@ If you do not select any text before hitting the shortcut key, this plugin will 
 
 There are two shortcuts, "Create Partial", and "Create Partial and Open". The latter option simply loads the partial into the view where as the "Create Partial" only creates the partial.
 
-Windows/OSX/Linux:
-ALT+P: Create Partial
-SHIFT+ALT+P: Create Partial and Open
+**Windows/OSX/Linux:**
+ * ALT+P: Create Partial
+ * SHIFT+ALT+P: Create Partial and Open
 
 
 ## Limitations
 
-This plugin only works for ERB/HTML/HAML and CSS/SCSS/SASS files. Other files will not work with this plugin. This will possibly be expanded in the future.
+This plugin only works for .erb/.html/.haml and .css/.scss/.sass files. Other files will not work with this plugin. This will possibly be expanded in the future.
 
 ## Installation
 
@@ -45,7 +45,7 @@ Package Control will automatically keep Rails Partial up to date with the latest
 
 This method required a little more work, but simply clone this repo into your Sublime Text 2 Package directory.
 
-    $ git clone git://github.com/wesf90/rails-partial.git RailsPartial
+    $ git clone git://github.com/wesf90/rails-partial.git Rails Partial
 
 Into your Package directory:
 
