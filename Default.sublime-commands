@@ -1,0 +1,11 @@
+[
+  {
+    "caption": "Rails Partial: Create Partial from Text",
+    "command": "rails_partial"
+  },
+  {
+	"caption": "Rails Partial: Create Partial and Open",
+	"command": "rails_partial",
+	"args": {"open_partial": true}
+  }
+]

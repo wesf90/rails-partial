@@ -1,0 +1,4 @@
+[
+  { "keys": ["alt+p"], "command": "rails_partial"},
+  { "keys": ["shift+alt+p"], "command": "rails_partial", "args": {"open_partial": true}}
+]
