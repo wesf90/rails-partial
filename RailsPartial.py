@@ -1,5 +1,5 @@
 # Rails Partial - Sublime Text 2 Plugin
-# Created by Wes Foster (wesf90) - wesfed@gmail.com
+# Created by Wes Foster (wesf90)
 
 import sublime, sublime_plugin, re
 
