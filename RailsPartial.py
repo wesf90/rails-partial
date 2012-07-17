@@ -38,7 +38,7 @@ class RailsPartialCommand(sublime_plugin.TextCommand):
 		source_ext	= re.sub(r"^[^\.]+", '', os.path.basename(source))
 		target_path = os.path.dirname(source)
 
-		# Dummy-proof the partial name -- Remove the prepended underscore and any file extensions
+		# Dummy-proof partial_name -- Remove the prepended underscore and any file extensions
 		partial_name = re.sub(r"^_{1}([^\.]+)\..*?$", '\\1', partial_name)
 
 		# Set the partial's name
