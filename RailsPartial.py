@@ -1,7 +1,8 @@
 # Rails Partial - Sublime Text 2 Plugin
 # Created by Wes Foster (wesf90) - wesfed@gmail.com
 
-import sublime, sublime_plugin, re
+import os, re
+import sublime, sublime_plugin
 
 class RailsPartialCommand(sublime_plugin.TextCommand):
 	edit         = None
@@ -11,7 +12,7 @@ class RailsPartialCommand(sublime_plugin.TextCommand):
 		self.edit         = edit
 		self.open_partial = open_partial
 
-		self.view.window().show_input_panel("Create a Partial:","new_partial",self.get_selected_text,None,None)
+		self.view.window().show_input_panel("Partial Name (underscore and extension not needed):","",self.get_selected_text,None,None)
 
 	def is_enabled(self):
  		return True
@@ -34,11 +35,14 @@ class RailsPartialCommand(sublime_plugin.TextCommand):
 		source = self.view.file_name()
 
 		# Get the file path and extension
-		source_ext  = re.sub(r"^.*\\[^\\\.]+", '', source)
-		target_path = re.sub(r"\\[^\\]+$", '', source)
+		source_ext	= re.sub(r"^[^\.]+", '', os.path.basename(source))
+		target_path = os.path.dirname(source)
+
+		# Dummy-proof the partial_name -- Remove the prepended underscore and any file extensions
+		partial_name = re.sub(r"^_{1}([^\.]+)\..*?$", '\\1', partial_name)
 
 		# Set the partial's name
-		partial_file_with_path = target_path + '\\_' + partial_name + source_ext
+		partial_file_with_path = target_path + '/_' + partial_name + source_ext
 
 		# Create the file and paste the data
 		if partial_file_with_path:
