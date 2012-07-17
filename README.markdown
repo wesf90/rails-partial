@@ -5,17 +5,17 @@ Makes creating Rails Partials a breeze. Quickly create a blank Partial, or selec
 
 ## How to Use
 
-1. Inside a Rails view file, select the text you with to put into a partial.
+1. Inside your Rails Apps's view (.erb, .html, .haml) or stylesheet (.css, .scss, .sass) file, select the code you with to put into a partial.
 2. Hit the corresponding shortcut key listed below under "Shortcut Keys"
-3. Name the Partial (the preceding underscore is not required)
-4. You're done! **If using HAML**, ensure that the partial is not indented on the first line or you will receive an error.
+3. Name the Partial (the preceding underscore and the file extension is not required)
+4. Hit "Enter" and you're done! **If using HAML**, ensure that the partial is not indented on the first line or you will receive an error.
 
-If you do not select any text before hitting the shortcut key, this plugin will simple create the partial file and insert the "render" code as appropriate.
+If you do not select any code before hitting the shortcut key, this plugin will simply create a blank partial file and insert the "render" code in your view/stylesheet as appropriate.
 
 
 ## Shortcut Keys
 
-There are two shortcuts, "Create Partial", and "Create Partial and Open". The latter option simply loads the partial into the view where as the "Create Partial" only creates the partial.
+There are two shortcuts, "Create Partial", and "Create Partial and Open". The latter option simply loads the partial into Sublime Text after creating it.
 
 **Windows/OSX/Linux:**
  * ALT+P: Create Partial
