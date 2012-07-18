@@ -2,8 +2,7 @@
 # Created by Wes Foster (wesf90)
 # https://github.com/wesf90/rails-partial
 
-import os
-from re import sub
+import os, re
 from textwrap import dedent
 import sublime, sublime_plugin
 
@@ -36,6 +35,7 @@ class RailsPartialCommand(sublime_plugin.TextCommand):
 	def create_partial_file(self, partial_name, partial_code):
 		# The source file's path
 		source = self.view.file_name()
+		
 
 		# Get the file path and extension
 		source_ext      = re.sub(r"^[^\.]+", '', os.path.basename(source))
