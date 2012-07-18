@@ -21,7 +21,6 @@ class RailsPartialCommand(sublime_plugin.TextCommand):
 		self.view.window().show_input_panel("Partial Name (underscore and extension not needed):","",self.get_selected_text,None,None)
 
 
-
 	# Get the selected text
 	def get_selected_text(self, partial_name):
 		for region in self.view.sel():
@@ -33,7 +32,6 @@ class RailsPartialCommand(sublime_plugin.TextCommand):
 			self.create_partial_file(partial_name, partial_code)
 
 
-
 	# Create the file
 	def create_partial_file(self, partial_name, partial_code):
 		# The source file's path
@@ -41,37 +39,43 @@ class RailsPartialCommand(sublime_plugin.TextCommand):
 
 		# Get the file path and extension
 		source_ext      = re.sub(r"^[^\.]+", '', os.path.basename(source))
-		target_path     = os.path.dirname(source)
-		rails_view_path = os.path.dirname(target_path)
+		source_path     = os.path.dirname(source)
+		rails_view_path = os.path.dirname(source_path)
 
+		# Default partial vars
+		partial_path = None
+		partial_sep  = '/'
+
+		# Set the target directory, current, it is the source's path
+		target_path = source_path
 
 		# Dummy-proof partial_name -- Remove the prepended underscore and any file extensions
 		partial_name = re.sub(r"^_{1}([^\.]+)\..*?$", '\\1', partial_name)
 
-		
 		# Are we wanting the partial in a separate directory?
 		if ( re.search(r"\/|\\", partial_name) ):
+			# Get the directory names from the partial_name
+			m = re.search(r"^(.*)(\\|\/){1}(.*?)$", partial_name)
+			partial_path = m.group(1)
+			partial_sep  = m.group(2)
+			partial_name = m.group(3)
+
 			if is_rails_view(source):
 				# If we're a rails view file, change the target path to the base views path
-				target_path = rails_view_path
+				target_path = rails_view_path + partial_sep + partial_path
+			else:
+				target_path += partial_sep + partial_path
 
 			# Check if the partial's path exists, if not, create
-			partial_path = os.path.dirname(target_path + '/' + partial_name)
-			if not os.path.exists(partial_path):
-				os.makedirs(partial_path)
-
-			# Prepend the underscore after the manually-entered dir
-			partial_name = re.sub(r"^(.*)(\\|\/){1}(.*?)$", '\\1\\2_\\3', partial_name)
-		else:
-			# Prepend the underscore
-			partial_name = '_' + partial_name
+			if not os.path.exists(target_path):
+				os.makedirs(target_path)
 
 
 		# Set the partial's name
-		partial_file_with_path = target_path + '/' + partial_name + source_ext
+		partial_file_with_path = target_path + partial_sep + '_' + partial_name + source_ext
 
 		# Create the file and paste the data
-		if partial_file_with_path:
+		if not os.path.exists(partial_file_with_path):
 			with open(partial_file_with_path, 'w') as f:
 				f.write(textwrap.dedent(partial_code))
 
@@ -80,7 +84,12 @@ class RailsPartialCommand(sublime_plugin.TextCommand):
 				self.view.window().open_file(partial_file_with_path)
 
 			# Insert the render code into the source file and replace the selected text
+			if partial_path:
+				partial_name = partial_path + '/' + partial_name
+
 			self.insert_render_code(partial_name, source)
+		else:
+			self.display_message("The partial you were trying to create already exists. To help protect you, we won't let you overwrite that partial. Please delete the partial and everything will be fine!")
 
 
 	# Insert the render code
