@@ -97,6 +97,8 @@ class RailsPartialCommand(sublime_plugin.TextCommand):
 		# Handle different file types
 		if source.endswith(".haml"):
 			code_replace = "= render '{0}'"
+		elif source.endswith( (".slim") ):
+			code_replace = "== render '{0}'"
 		elif source.endswith( (".erb",".html") ):		# .html added just in case.
 			code_replace = "<%= render '{0}' %>"
 		elif source.endswith( (".php") ):				# Only basic support, php isn't the real goal as of now. Feel free to expand!
