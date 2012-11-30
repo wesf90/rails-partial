@@ -40,7 +40,7 @@ The same methods above can be applied to your .css, .scss/.sass files. Try it ou
 
 ## Limitations
 
-This plugin only works for .erb/.html/.haml and .css/.scss/.sass files. Other files will not work with this plugin. This will possibly be expanded in the future.
+This plugin only works for .erb/.html/.haml/.slim and .css/.scss/.sass files. Other files will not work with this plugin. This will possibly be expanded in the future.
 
 
 ## Installation
