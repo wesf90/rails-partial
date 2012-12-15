@@ -15,7 +15,7 @@ There are two shortcuts, "Create Partial", and "Create Partial and Open". The la
 
 ## How to Use
 
-The following instructions are all done inside your Rails Apps's view (.erb, .html, .haml) or stylesheet (.css, .scss, .sass) files.
+The following instructions are all done inside your Rails Apps's view (.erb, .html, .haml, .slim) or stylesheet (.css, .scss, .sass) files.
 
 
 #### Creating a Partial from Code
@@ -40,7 +40,9 @@ The same methods above can be applied to your .css, .scss/.sass files. Try it ou
 
 ## Limitations
 
-This plugin only works for .erb/.html/.haml/.slim and .css/.scss/.sass files. Other files will not work with this plugin. This will possibly be expanded in the future.
+This plugin only works for markups like .erb, .html, .haml, .slim and stylesheets like .css, .scss, .sass. Other files will not work with this plugin. This will possibly be expanded in the future.
+
+If you need support for other files, please submitte an issue or an pull request.
 
 
 ## Installation
@@ -64,16 +66,24 @@ Package Control will automatically keep Rails Partial up to date with the latest
 
 This method required a little more work, but simply clone this repo into your Sublime Text 2 Package directory.
 
-    $ git clone git://github.com/wesf90/rails-partial.git Rails Partial
+``` bash
+$ git clone git://github.com/wesf90/rails-partial.git Rails Partial
+```
 
-Into your Package directory:
+Further instructions below.
 
+#### Windows XP, 7 and 8
+Execute the commands below one by one in your Command prompt.
 
-#### Windows 7:
+``` bash
+$ cd "%APPDATA%\Sublime Text 2\Packages"
+$ git clone git://github.com/wesf90/rails-partial.git "Rails Partial"
+```
 
-    Copy the directory to: "C:\Users\<username>\AppData\Roaming\Sublime Text 2\Packages"
+#### Linux
+Execute the commands below one by one in your terminal.
 
-
-#### Windows XP:
-
-    Copy the directory to: "C:\Documents and Settings\<username>\Application Data\Sublime Text 2\Packages"
+``` bash
+$ cd ~/.config/sublime-text-2/Packages/
+$ git clone git://github.com/wesf90/rails-partial.git Rails\ Partial
+```
