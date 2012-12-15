@@ -40,14 +40,16 @@ The same methods above can be applied to your .css, .scss/.sass files. Try it ou
 
 ## Limitations
 
-This plugin only works for markups like .erb, .html, .haml, .slim and stylesheets like .css, .scss, .sass. Other files will not work with this plugin. This will possibly be expanded in the future.
+This plugin has support for the following file types:
+ - **Markup:** .erb, .html, .haml, .slim
+ - **Stylesheet:** .css, .scss, .sass.
 
-If you need support for other files, please submitte an issue or an pull request.
+This list will possibly be expanded in the future. If you would like support for other files, please submit an issue or an pull request.
 
 
 ## Installation
 
-You have two options, we'll start with the preferred installation method.
+You have two options, we'll start with the preferred installation method, Package Control.
 
 
 ### Package Control
