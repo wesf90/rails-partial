@@ -101,7 +101,7 @@ class RailsPartialCommand(sublime_plugin.TextCommand):
 			code_replace = "== render :partial => '{0}'"
 		elif source.endswith( (".erb",".html") ):		# .html added just in case.
 			code_replace = "<%= render :partial => '{0}' %>"
-		elif source.endswith( (".php") ):				# Only basic support, php isn't the real goal as of now. Feel free to expand!
+		elif source.endswith( (".php") ):			# Only basic support, php isn't the real goal as of now. Feel free to expand!
 			code_replace = "<?php include('{0}'); ?>"	# :)
 		elif source.endswith( (".css") ):
 			code_replace = "@import url('{0}');"
