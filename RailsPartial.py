@@ -96,11 +96,11 @@ class RailsPartialCommand(sublime_plugin.TextCommand):
 	def insert_render_code(self, partial_name, source):
 		# Handle different file types
 		if source.endswith(".haml"):
-			code_replace = "= render :partial => '{0}'"
+			code_replace = "= render '{0}'"
 		elif source.endswith( (".slim") ):
-			code_replace = "== render :partial => '{0}'"
+			code_replace = "== render '{0}'"
 		elif source.endswith( (".erb",".html") ):		# .html added just in case.
-			code_replace = "<%= render :partial => '{0}' %>"
+			code_replace = "<%= render '{0}' %>"
 		elif source.endswith( (".php") ):			# Only basic support, php isn't the real goal as of now. Feel free to expand!
 			code_replace = "<?php include('{0}'); ?>"	# :)
 		elif source.endswith( (".css") ):
