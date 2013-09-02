@@ -2,6 +2,8 @@
 
 Makes creating Rails Partials a breeze. Quickly create a blank Partial, or select text and create the partial instantly!
 
+*Sublime Text 3 Update:* Once ST3 is fully stable, this plugin will default to the ST3 branch. Until then, if you would like to get this plugin to work with ST3, simply download or clone the contents of the ST3 branch into your ST3 plugins folder.
+
 
 ## Shortcut Keys
 
@@ -69,7 +71,7 @@ Package Control will automatically keep Rails Partial up to date with the latest
 This method required a little more work, but simply clone this repo into your Sublime Text 2 Package directory.
 
 ``` bash
-$ git clone git://github.com/wesf90/rails-partial.git Rails Partial
+$ git clone git://github.com/wesf90/rails-partial.git "Rails Partial"
 ```
 
 Further instructions below.
@@ -87,5 +89,5 @@ Execute the commands below one by one in your terminal.
 
 ``` bash
 $ cd ~/.config/sublime-text-2/Packages/
-$ git clone git://github.com/wesf90/rails-partial.git Rails\ Partial
+$ git clone git://github.com/wesf90/rails-partial.git "Rails Partial"
 ```
