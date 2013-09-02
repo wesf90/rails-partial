@@ -1,4 +1,4 @@
-# Rails Partial - Sublime Text 2 Plugin
+# Rails Partial - Sublime Text 3 Plugin
 # Created by Wes Foster (wesf90)
 # https://github.com/wesf90/rails-partial
 
@@ -8,15 +8,32 @@ import sublime, sublime_plugin
 def is_rails_view(path):
 	return True if ( re.search(r"(?:\\|\/)app(?:\\|\/)views", path) ) else False
 
+## Initialize the prompt in a separate command since the replace function around line 133 cannot be ran after the "run" command is returned on line 15
+class RailsPartialPromptCommand(sublime_plugin.WindowCommand):
+	open_partial = False
+
+	def run(self, open_partial=False):
+		self.open_partial = open_partial
+
+		self.window.show_input_panel("Partial's Name (without underscore or extension):", "", self.run_rails_partial_process, None, None)
+		pass
+
+	def run_rails_partial_process(self, partial_name):
+		if self.window.active_view():
+			## Run the actual rails partial command
+			self.window.active_view().run_command( 'rails_partial', {'partial_name':partial_name, 'open_partial':self.open_partial} )
+
+
+## Now, run the actual rails partial process
 class RailsPartialCommand(sublime_plugin.TextCommand):
 	edit         = None
 	open_partial = False
 
-	def run(self, edit, open_partial = False):
+	def run(self, edit, partial_name, open_partial=False):
 		self.edit         = edit
 		self.open_partial = open_partial
 
-		self.view.window().show_input_panel("Partial Name (underscore and extension not needed):","",self.get_selected_text,None,None)
+		self.get_selected_text(partial_name)
 
 
 	# Get the selected text
@@ -76,7 +93,7 @@ class RailsPartialCommand(sublime_plugin.TextCommand):
 		# Create the file and paste the data
 		if not os.path.exists(partial_file_with_path):
 			with open(partial_file_with_path, 'w') as f:
-				f.write(textwrap.dedent(partial_code.encode('utf-8')))
+				f.write(textwrap.dedent(partial_code))
 
 			#Open the file?
 			if (self.open_partial == True):
@@ -101,11 +118,11 @@ class RailsPartialCommand(sublime_plugin.TextCommand):
 			code_replace = "== render '{0}'"
 		elif source.endswith( (".erb",".html") ):		# .html added just in case.
 			code_replace = "<%= render '{0}' %>"
-		elif source.endswith( (".php") ):			# Only basic support, php isn't the real goal as of now. Feel free to expand!
+		elif source.endswith( (".php") ):				# Only basic support, php isn't the real goal as of now. Feel free to expand!
 			code_replace = "<?php include('{0}'); ?>"	# :)
 		elif source.endswith( (".css") ):
 			code_replace = "@import url('{0}');"
- 		elif source.endswith( (".scss", ".sass") ):
+		elif source.endswith( (".scss", ".sass") ):
 			code_replace = "@import '{0}';"
 		else:
 			self.display_message("You're using an unsupported file type! The partial was created, just not 'included' automatically.")
@@ -122,4 +139,4 @@ class RailsPartialCommand(sublime_plugin.TextCommand):
 
 
 	def display_message(self, value):
-	    sublime.active_window().active_view().set_status("rails_partial_msg", value)
+		sublime.active_window().active_view().set_status("rails_partial_msg", value)
