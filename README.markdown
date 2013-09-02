@@ -2,7 +2,7 @@
 
 Makes creating Rails Partials a breeze. Quickly create a blank Partial, or select text and create the partial instantly!
 
-*Sublime Text 3 Update:* Once ST3 is fully stable, this plugin will default to the ST3 branch. Until then, if you would like to get this plugin to work with ST3, simply download or clone the contents of the ST3 branch into your ST3 plugins folder.
+**Sublime Text 3 Update:** Once ST3 is fully stable, this plugin will default to the ST3 branch. Until then, if you would like to get this plugin to work with ST3, simply download or clone the contents of the ST3 branch into your ST3 plugins folder.
 
 
 ## Shortcut Keys
