@@ -56,10 +56,14 @@ You have two options, we'll start with the preferred installation method, Packag
 
 The easiest and preferred way to of installing this plugin is with [Package Control](http://wbond.net/sublime\_packages/package\_control).
 
- * Ensure Package Control is installed and Sublime Text 2 has been restarted.
+ * Ensure Package Control is installed and Sublime Text 3 has been restarted.
  * Open the Command Palette (Command+Shift+P on OS X, Control+Shift+P on Linux/Windows).
+ * Select "Package Control: Add Repository"
+ * Enter https://github.com/wesf90/rails-partial/tree/st3
  * Select "Package Control: Install Package"
- * Select Rails Partial when the list appears.
+ * Enter rails-partial
+
+Even though Package Control makes it look like it's installing the ST2 version, you should find that in fact the ST3 branch has been installed.
 
 Package Control will automatically keep Rails Partial up to date with the latest version.
 
