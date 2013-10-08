@@ -105,7 +105,7 @@ class RailsPartialCommand(sublime_plugin.TextCommand):
 			code_replace = "<?php include('{0}'); ?>"	# :)
 		elif source.endswith( (".css") ):
 			code_replace = "@import url('{0}');"
- 		elif source.endswith( (".scss", ".sass") ):
+		elif source.endswith( (".scss", ".sass") ):
 			code_replace = "@import '{0}';"
 		else:
 			self.display_message("You're using an unsupported file type! The partial was created, just not 'included' automatically.")
@@ -122,4 +122,4 @@ class RailsPartialCommand(sublime_plugin.TextCommand):
 
 
 	def display_message(self, value):
-	    sublime.active_window().active_view().set_status("rails_partial_msg", value)
+			sublime.active_window().active_view().set_status("rails_partial_msg", value)
