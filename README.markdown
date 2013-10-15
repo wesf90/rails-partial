@@ -1,8 +1,8 @@
-# Sublime Text 2 plugin: Rails Partial
+# Sublime Text 2 and 3 plugin: Rails Partial
 
 Makes creating Rails Partials a breeze. Quickly create a blank Partial, or select text and create the partial instantly!
 
-**Sublime Text 3 Update:** Once ST3 is fully stable, this plugin will default to the ST3 branch. Until then, if you would like to get this plugin to work with ST3, simply download or clone the contents of the ST3 branch into your ST3 plugins folder.
+**Sublime Text 3 Update:** ST3 is now supported through the ST3 branch. When using ST3 and package control, the package control should automatically download the correct branch based on your version of Sublime Test. If you would like to intall this plugin in ST3 without Package Control, simply download or clone the contents of the ST3 branch into your ST3 plugins directory.
 
 
 ## Shortcut Keys
