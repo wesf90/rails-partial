@@ -1,4 +1,4 @@
-# Sublime Text 2 plugin: Rails Partial
+# Sublime Text 3 plugin: Rails Partial
 
 Makes creating Rails Partials a breeze. Quickly create a blank Partial, or select text and create the partial instantly!
 
@@ -82,7 +82,7 @@ Further instructions below.
 Execute the commands below one by one in your Command prompt.
 
 ``` bash
-$ cd "%APPDATA%\Sublime Text 2\Packages"
+$ cd "%APPDATA%\Sublime Text 3\Packages"
 $ git clone git://github.com/wesf90/rails-partial.git "Rails Partial"
 ```
 
@@ -90,6 +90,6 @@ $ git clone git://github.com/wesf90/rails-partial.git "Rails Partial"
 Execute the commands below one by one in your terminal.
 
 ``` bash
-$ cd ~/.config/sublime-text-2/Packages/
+$ cd ~/.config/sublime-text-3/Packages/
 $ git clone git://github.com/wesf90/rails-partial.git Rails\ Partial
 ```
