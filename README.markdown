@@ -76,7 +76,7 @@ $ git clone git://github.com/wesf90/rails-partial.git "Rails Partial"
 
 Further instructions below.
 
-#### Windows XP, 7 and 8
+#### Windows XP, 7, 8, and 10
 Execute the commands below one by one in your Command prompt.
 
 ``` bash
